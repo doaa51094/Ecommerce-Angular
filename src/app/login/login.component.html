@@ -1,1 +1,40 @@
-<p>login works!</p>
+<section id="login">
+  <div class="container">
+    <h2>Login</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="login(loginForm)">
+
+      <label for="email">Email </label>
+      <input
+        type="email"
+        id="email"
+        formControlName="email"
+        class="form-control mb-2 mt-1"
+      />
+      <div *ngIf="loginForm.get('email')?.errors && (loginForm.get('email')?.touched || isNotValidForm)">
+        <p *ngIf="loginForm.get('email')?.getError('required')" class="alert alert-danger ">Email is required</p>
+        <p *ngIf="loginForm.get('email')?.getError('email')" class="alert alert-danger ">Email is invalid</p>
+      </div>
+
+      <label for="password">Password </label>
+      <input
+        type="password"
+        id="password"
+        formControlName="password"
+        class="form-control mb-2 mt-1"
+      />
+      <div *ngIf="loginForm.get('password')?.errors && (loginForm.get('password')?.touched || isNotValidForm)">
+        <p *ngIf="loginForm.get('password')?.getError('required')" class="alert alert-danger ">Password is required</p>
+        <p *ngIf="loginForm.get('password')?.getError('pattern')" class="alert alert-danger ">Password is invalid</p>
+      </div>
+
+
+      <div *ngIf="errorMsg">
+        <p class="alert alert-danger ">{{errorMsg}}</p>
+      </div>
+      <button  type="submit" class="btn ms-auto d-block">
+        <i *ngIf="isLoading" class="fas fa-spinner fa-spin"></i>
+
+        Login</button>
+    </form>
+  </div>
+</section>

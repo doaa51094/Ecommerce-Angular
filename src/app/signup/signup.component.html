@@ -9,10 +9,10 @@
         formControlName="name"
         class="form-control mb-2 mt-1"
       />
-      <div *ngIf="RegisterForm.get('name')?.errors && RegisterForm.get('name')?.touched">
-        <p *ngIf="RegisterForm.get('name')?.getError('required')" class="alert alert-danger mb-0">Name is required</p>
-        <p *ngIf="RegisterForm.get('name')?.getError('minlength')" class="alert alert-danger mb-0">Minimum length is 2</p>
-        <p *ngIf="RegisterForm.get('name')?.getError('maxlength')" class="alert alert-danger mb-0">Maximum length is 15</p>
+      <div *ngIf="RegisterForm.get('name')?.errors && (RegisterForm.get('name')?.touched || isNotValidForm)">
+        <p *ngIf="RegisterForm.get('name')?.getError('required')" class="alert alert-danger ">Name is required</p>
+        <p *ngIf="RegisterForm.get('name')?.getError('minlength')" class="alert alert-danger ">Minimum length is 2</p>
+        <p *ngIf="RegisterForm.get('name')?.getError('maxlength')" class="alert alert-danger ">Maximum length is 15</p>
       </div>
 
       <label for="email">Email </label>
@@ -22,9 +22,9 @@
         formControlName="email"
         class="form-control mb-2 mt-1"
       />
-      <div *ngIf="RegisterForm.get('email')?.errors && RegisterForm.get('email')?.touched">
-        <p *ngIf="RegisterForm.get('email')?.getError('required')" class="alert alert-danger mb-0">Email is required</p>
-        <p *ngIf="RegisterForm.get('email')?.getError('email')" class="alert alert-danger mb-0">Email is invalid</p>
+      <div *ngIf="RegisterForm.get('email')?.errors && (RegisterForm.get('email')?.touched || isNotValidForm)">
+        <p *ngIf="RegisterForm.get('email')?.getError('required')" class="alert alert-danger ">Email is required</p>
+        <p *ngIf="RegisterForm.get('email')?.getError('email')" class="alert alert-danger ">Email is invalid</p>
       </div>
 
       <label for="password">Password </label>
@@ -34,9 +34,9 @@
         formControlName="password"
         class="form-control mb-2 mt-1"
       />
-      <div *ngIf="RegisterForm.get('password')?.errors && RegisterForm.get('password')?.touched">
-        <p *ngIf="RegisterForm.get('password')?.getError('required')" class="alert alert-danger mb-0">Password is required</p>
-        <p *ngIf="RegisterForm.get('password')?.getError('pattern')" class="alert alert-danger mb-0">Password is invalid</p>
+      <div *ngIf="RegisterForm.get('password')?.errors && (RegisterForm.get('password')?.touched || isNotValidForm)">
+        <p *ngIf="RegisterForm.get('password')?.getError('required')" class="alert alert-danger ">Password is required</p>
+        <p *ngIf="RegisterForm.get('password')?.getError('pattern')" class="alert alert-danger ">Password is invalid</p>
       </div>
 
       <label for="rePassword">Re-Password </label>
@@ -46,9 +46,9 @@
         formControlName="rePassword"
         class="form-control mb-2 mt-1"
       />
-      <div *ngIf="RegisterForm.get('rePassword')?.errors && RegisterForm.get('rePassword')?.touched">
-        <p *ngIf="RegisterForm.get('rePassword')?.getError('required')" class="alert alert-danger mb-0">Re-Password is required</p>
-        <p *ngIf="RegisterForm.get('rePassword')?.getError('pattern')" class="alert alert-danger mb-0">Re-Password is invalid</p>
+      <div *ngIf="RegisterForm.get('rePassword')?.errors && (RegisterForm.get('rePassword')?.touched || isNotValidForm)">
+        <p *ngIf="RegisterForm.get('rePassword')?.getError('required')" class="alert alert-danger ">Re-Password is required</p>
+        <p *ngIf="RegisterForm.get('rePassword')?.getError('pattern')" class="alert alert-danger ">Re-Password is invalid</p>
       </div>
 
       <label for="phone">Phone </label>
@@ -58,13 +58,21 @@
         formControlName="phone"
         class="form-control mb-2 mt-1"
       />
-      <div *ngIf="RegisterForm.get('phone')?.errors && RegisterForm.get('phone')?.touched">
-        <p *ngIf="RegisterForm.get('phone')?.getError('required')" class="alert alert-danger mb-0">Phone is required</p>
-        <p *ngIf="RegisterForm.get('phone')?.getError('minlength')" class="alert alert-danger mb-0">Phone must be at least 10 digits</p>
-        <p *ngIf="RegisterForm.get('phone')?.getError('maxlength')" class="alert alert-danger mb-0">Phone can be up to 12 digits</p>
+      <div *ngIf="RegisterForm.get('phone')?.errors && (RegisterForm.get('phone')?.touched || isNotValidForm)">
+        <p *ngIf="RegisterForm.get('phone')?.getError('required')" class="alert alert-danger ">Phone is required</p>
+        <p *ngIf="RegisterForm.get('phone')?.getError('minlength')" class="alert alert-danger ">Phone must be at least 10 digits</p>
+        <p *ngIf="RegisterForm.get('phone')?.getError('maxlength')" class="alert alert-danger ">Phone can be up to 12 digits</p>
       </div>
+      <div *ngIf="RegisterForm.errors?.['passwordMismatch'] && (RegisterForm.get('rePassword')?.touched || isNotValidForm)">
+        <p class="alert alert-danger ">Passwords do not match</p>
+      </div>
+      <div *ngIf="errorMsg">
+        <p class="alert alert-danger ">{{errorMsg}}</p>
+      </div>
+      <button  type="submit" class="btn ms-auto d-block">
+        <i *ngIf="isLoading" class="fas fa-spinner fa-spin"></i>
 
-      <button type="submit" class="btn ms-auto d-block">Register</button>
+        Register</button>
     </form>
   </div>
 </section>

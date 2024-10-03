@@ -11,4 +11,7 @@ export class AuthService {
   register(data:any):Observable<any>{
   return  this._httpClient.post('https://ecommerce.routemisr.com/api/v1/auth/signup',data)
   }
+  login(data:any):Observable<any>{
+  return  this._httpClient.post('https://ecommerce.routemisr.com/api/v1/auth/signin',data)
+  }
 }
