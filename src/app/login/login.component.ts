@@ -30,6 +30,8 @@ login(form:FormGroup){
   this._authService.login(form.value).subscribe({
     next:(res:any)=>{
       this.isLoading=false;
+      localStorage.setItem('userToken',res.token);
+      this._authService.getUserData();
       this._router.navigate(['/home'])
     },
     error :(err:any)=>{
