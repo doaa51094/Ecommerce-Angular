@@ -13,6 +13,7 @@ ul li {
   border-radius: 20px;
   transition: border-color 0.5s ease-in-out, border-width 0.5s ease-in-out;
   border: 1px solid transparent;
+  cursor: pointer;
   &:hover{
     border-color: black;
     border-width: 1px;

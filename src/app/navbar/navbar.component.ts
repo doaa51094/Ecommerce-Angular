@@ -19,4 +19,7 @@ this.isLoggedIn=true;
   }
 })
   }
+  logout(){
+    this._authServise.logout();
+  }
 }
