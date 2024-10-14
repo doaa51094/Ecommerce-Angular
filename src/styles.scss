@@ -1,5 +1,25 @@
 :root {
   --mainColor: #5270AA ;
+  --rating-color:#fdcc0d;
+ --shadow-color:rgb(229, 229, 229);
+ --text-color: rgb(64, 69, 83);
 }
+.main-color-gradient{
+  background-image: linear-gradient(to left ,#829bcd,#5270AA) !important;
+}
+.rating-color {
+  color: var(--rating-color);
+}
+.text-main{
+  color: var(--mainColor);
+}
+.shadow-color:hover{
+box-shadow: 0 0 9px var(--shadow-color);
+cursor: pointer;
+}
+.main-text-color{
+  color: var(--text-color) !important;
+}
+
 
 

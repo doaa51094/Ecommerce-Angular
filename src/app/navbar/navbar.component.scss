@@ -1,29 +1,33 @@
-.logo {
-  width: 11rem;
-  background-color: transparent;
-}
-.active {
-  color: var(--mainColor) !important;
-}
-ul li {
-  font-size: 1.1rem;
-  font-weight: 500;
-  line-height: 27px;
-  padding: 0 10px;
-  border-radius: 20px;
-  transition: border-color 0.5s ease-in-out, border-width 0.5s ease-in-out;
-  border: 1px solid transparent;
-  cursor: pointer;
-  &:hover{
-    border-color: black;
-    border-width: 1px;
+nav{
+  box-shadow: 0 0 15px 1px rgba($color: #000000, $alpha:0.1);
+  .logo {
+    width: 11rem;
+    background-color: transparent;
   }
+  .active {
+    color: var(--mainColor) !important;
+  }
+  ul li {
+    font-size: 1.1rem;
+    font-weight: 500;
+    line-height: 27px;
+    padding: 0 10px;
+    border-radius: 20px;
+    transition: border-color 0.5s ease-in-out, border-width 0.5s ease-in-out;
+    border: 1px solid transparent;
+    cursor: pointer;
+    &:hover{
+      border-color: black;
+      border-width: 1px;
+    }
 
-}
-@media (max-width: 900px) {
-  .navbar-nav .nav-link{
-   text-align: center;
+  }
+  @media (max-width: 900px) {
+    .navbar-nav .nav-link{
+     text-align: center;
+    }
   }
 }
+
 
 

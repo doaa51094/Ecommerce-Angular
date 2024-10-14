@@ -23,7 +23,6 @@ export class AuthGuard implements CanActivate {
     | boolean
     | UrlTree {
     const isLoggedIn = localStorage.getItem('userToken');
-
     if (isLoggedIn) {
       return true;
     } else {

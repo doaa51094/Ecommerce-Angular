@@ -1,0 +1,12 @@
+.product-item {
+  border: 1px solid rgb(229, 229, 229);
+  border-radius: 8px;
+  padding: 12px;
+  // background-color: rgb(229, 229, 229, 0.3);
+}
+.imageCover {
+  border-radius: 8px;
+  width: 100%;
+  object-fit: contain;
+  box-shadow: 0 0 10px rgb(229, 229, 229, 0.7);
+}

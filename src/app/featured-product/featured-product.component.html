@@ -1,0 +1,41 @@
+<div class="container my-3">
+  <div class="row">
+    <div class="col-md-2 g-3" *ngFor="let product of allProducts">
+      <div class="product product-item shadow-color">
+        <div class="position-relative">
+          <img [src]="product.imageCover" class="w-100 imageCover" alt="" />
+          <div
+            class="bg-white w-25 text-center rounded-1 shadow p-2 position-absolute top-0 end-0"
+          >
+            <i class="fa-regular fa-heart text-main"></i>
+          </div>
+        </div>
+        <p class="text-main mb-0 py-1 fw-bold">{{ product.category.name }}</p>
+        <h2
+          class="h6 py-0 my-0 main-text-color"
+          data-bs-toggle="tooltip"
+          data-bs-placement="bottom"
+          [title]="product.title"
+        >
+          {{
+            product.title.length > 20
+              ? product.title.slice(0, 18) + "..."
+              : product.title
+          }}
+        </h2>
+
+        <div class="d-flex justify-content-between pt-3">
+          <span class="fw-semibold main-text-color">$ {{ product.price }}</span>
+          <div class="fw-semibold main-text-color">
+            {{ product.ratingsAverage }}
+            <i class="fa fa-star rating-color pe-1"></i>
+          </div>
+        </div>
+        <button class="btn text-center w-100 mt-2 main-color-gradient text-white border-0">
+          <i class="fa-duotone fa-solid fa-cart-shopping text-white pe-2"></i>
+          Add To Cart
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
