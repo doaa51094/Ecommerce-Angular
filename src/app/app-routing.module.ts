@@ -11,35 +11,67 @@ import { SignupComponent } from './signup/signup.component';
 import { ProductComponent } from './product/product.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AuthGuard } from './auth.guard';
-
+import { ProductDetailsComponent } from './product-details/product-details.component';
 
 const routes: Routes = [
-  {path:"",redirectTo:'home',pathMatch:"full"},
-  {path:"home",component:HomeComponent,canActivate:[AuthGuard] , title:"home"},
-  {path:"about",component:AboutComponent ,canActivate:[AuthGuard] , title:"about"},
-  {path:"brands",component:BrandComponent ,canActivate:[AuthGuard] , title:"brands"},
-  {path:"category",component:CategoriesComponent , canActivate:[AuthGuard] ,title:"category"},
-  {path:"footer",component:FooterComponent ,canActivate:[AuthGuard] , title:"footer"},
-  {path:"cart",component:CartComponent ,canActivate:[AuthGuard] , title:"cart"},
-  {path:"product",component:ProductComponent ,canActivate:[AuthGuard] , title:"product"},
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  {
+    path: 'home',
+    component: HomeComponent,
+    canActivate: [AuthGuard],
+    title: 'home',
+  },
+  {
+    path: 'about',
+    component: AboutComponent,
+    canActivate: [AuthGuard],
+    title: 'about',
+  },
+  {
+    path: 'brands',
+    component: BrandComponent,
+    canActivate: [AuthGuard],
+    title: 'brands',
+  },
+  {
+    path: 'category',
+    component: CategoriesComponent,
+    canActivate: [AuthGuard],
+    title: 'category',
+  },
+  {
+    path: 'footer',
+    component: FooterComponent,
+    canActivate: [AuthGuard],
+    title: 'footer',
+  },
+  {
+    path: 'cart',
+    component: CartComponent,
+    canActivate: [AuthGuard],
+    title: 'cart',
+  },
+  {
+    path: 'product',
+    component: ProductComponent,
+    canActivate: [AuthGuard],
+    title: 'product',
+  },
+  {
+    path: 'productDetails/:id',
+    component: ProductDetailsComponent,
+    canActivate: [AuthGuard],
+    title: 'productDetails',
+  },
 
+  { path: 'login', component: LoginComponent, title: 'login' },
+  { path: 'signup', component: SignupComponent, title: 'signup' },
 
-  {path:"login",component:LoginComponent , title:"login"},
-  {path:"signup",component:SignupComponent , title:"signup"},
-
-
-
-
-
-
-
-
-
-  {path:"**",component:NotFoundComponent , title:"not-found"},
+  { path: '**', component: NotFoundComponent, title: 'not-found' },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
